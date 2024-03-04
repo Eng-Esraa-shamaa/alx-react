@@ -7,17 +7,17 @@ module.exports = {
     filename: 'bundle.js',
   },
   performance: {
-    maxAssetSize: 100000,
+    maxAssetSize: 1000000,
   },
   mode: 'production',
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
           "file-loader",
           {
@@ -25,10 +25,10 @@ module.exports = {
             options: {
               bypassOnDebug: true,
               disable: true,
-            }
-          }
+            },
+          },
         ],
-      }
+      },
     ],
   },
 };
