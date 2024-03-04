@@ -1,14 +1,21 @@
 {
   "name": "task_0",
   "version": "1.0.0",
-  "description": "",
+  "description": "webPack",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "asset compilation",
+    "entry points",
+    "javascript",
+    "loaders",
+    "output",
+    "webpack plugins"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
