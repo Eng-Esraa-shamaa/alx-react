@@ -8,9 +8,9 @@ const Login = () => {
             <p>Login to access the full dashboard</p>
             <form>
             <label htmlFor="email">Email:</label>
-            <input type="email" name="email" />
+            <input type="email" id='email' name="email" autocomplete="on"/>
             <label htmlFor="password">Password:</label>
-            <input type="password" name="password" />
+            <input type="password" id='password' name="password" />
             <button>OK</button>
             </form>
 
