@@ -22,7 +22,7 @@ const listNotifications = [
   { id: 3, type: "urgent", html: { __html: getLatestNotification() } },
 ];
 
-class App extends Component {
+class App extends React.Component {
   state = {  }
   constructor(props) {
     super(props);
@@ -35,10 +35,10 @@ class App extends Component {
     const { isLoggedIn } = this.props;
     return (
       <React.Fragment>
-        <Notifications displayDrawer={displayDrawer} listNotifications={listNotifications} />
+        <Notifications displayDrawer={displayDrawer} listNotifications={this.listNotifications} />
         <div className="App">
           <Header />
-          {isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
+          {isLoggedIn ? <CourseList listCourses={this.listCourses} /> : <Login />}
         </div>
         <Footer />
       </React.Fragment>
@@ -46,26 +46,6 @@ class App extends Component {
   }
 }
  
-{/*export default App;
-
-{/*function App({isLoggedIn}) {
-  const [displayDrawer, setDisplayDrawer] = useState(false);
-  return (
-    <React.Fragment>
-      
-      <Notifications displayDrawer={displayDrawer} listNotifications={listNotifications} />
-
-      <div className="App">
-        <Header/>
-        {!isLoggedIn ? <Login /> : <CourseList listCourses={listCourses}/>}
-      </div>
-    
-        <Footer/>
-      
-    </React.Fragment>
-  );
-}*/}
-
 App.defaultProps = {
   isLoggedIn: false
 };
