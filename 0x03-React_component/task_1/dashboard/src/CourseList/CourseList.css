@@ -1,0 +1,24 @@
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: left;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+th {
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+td {
+    text-align: left;
+}
+tbody {
+    border: 1px solid black;
+    padding: 30px;
+    text-align: left;
+}
+.head {
+    text-align: center;
+    padding: 5px;
+}
