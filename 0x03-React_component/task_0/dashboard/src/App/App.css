@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+  position: relative;
+  height: 100vh;
+  max-width: 100vw;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-body{
+  font-weight: bold;
+  font-size: 20px;
+  margin: 50px;
+}
+
+label {
+  margin-right: 10px;
+}
+form input {
+  margin: 10px;
+}
+button {
+  margin-left: 5px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
