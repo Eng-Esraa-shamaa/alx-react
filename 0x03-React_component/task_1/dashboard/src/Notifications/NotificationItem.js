@@ -9,7 +9,7 @@ function NotificationItem({ type, value, html }) {
       listItem = <li data-notification-type={type}>{value}</li>;
     } else {
       listItem = (
-        <li data-notification-type={type} dangerouslySetInnerHTML={html}></li>
+        <li data-notification-type={type} dangerouslySetInnerHTML={{ __html: html }}> </li> 
       );
     }
   

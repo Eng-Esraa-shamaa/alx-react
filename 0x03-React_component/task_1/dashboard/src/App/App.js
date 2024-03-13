@@ -62,25 +62,6 @@ class App extends React.Component {
   }
 }
  
-{/*export default App;
-
-{/*function App({isLoggedIn}) {
-  const [displayDrawer, setDisplayDrawer] = useState(false);
-  return (
-    <React.Fragment>
-      
-      <Notifications displayDrawer={displayDrawer} listNotifications={listNotifications} />
-
-      <div className="App">
-        <Header/>
-        {!isLoggedIn ? <Login /> : <CourseList listCourses={listCourses}/>}
-      </div>
-    
-        <Footer/>
-      
-    </React.Fragment>
-  );
-}*/}
 
 App.defaultProps = {
   isLoggedIn: false,

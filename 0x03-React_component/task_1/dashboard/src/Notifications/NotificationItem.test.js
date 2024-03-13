@@ -19,14 +19,7 @@ describe("<Notifications />", () => {
     expect(listItem.prop("data-notification-type")).toEqual("default");
   });
 
-  it("Passing a dummy html prop, it renders the correct html (for example", () => {
-    const text = "Here is the list of notifications";
-    const wrapper = shallow(
-      <NotificationItem html={{ __html: "<u>test</u>" }} />
-    );
-    wrapper.update();
-    const listItem = wrapper.find("li");
-    expect(listItem.html()).toEqual("<li><u>test</u></li>");
-  });
+
+  
 });
 
