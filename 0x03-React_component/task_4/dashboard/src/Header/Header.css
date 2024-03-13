@@ -1,0 +1,13 @@
+.App-header {
+    background-color: white;
+    
+    /*min-height: 100vh;*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    font-size: 20px;
+    color:#E0354B;
+    border-bottom: 6px solid #E0354B;
+    padding-top: 10rem;
+  }
