@@ -35,10 +35,10 @@ class App extends React.Component {
     const { isLoggedIn } = this.props;
     return (
       <React.Fragment>
-        <Notifications displayDrawer={displayDrawer} listNotifications={this.listNotifications} />
+        <Notifications displayDrawer={displayDrawer} listNotifications={listNotifications} />
         <div className="App">
           <Header />
-          {isLoggedIn ? <CourseList listCourses={this.listCourses} /> : <Login />}
+          {isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
         </div>
         <Footer />
       </React.Fragment>
