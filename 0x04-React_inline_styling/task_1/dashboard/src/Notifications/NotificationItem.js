@@ -1,41 +1,38 @@
 import React from "react";
-import PropTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
+import PropTypes from "prop-types";
 
-
-
-
-const NotificationItem = React.memo(({ html, type, value, markAsRead, id }) => {
-  return (
-    value ? (
-      <li
-        data-notification-type={type}
-        onClick={() => markAsRead(id)}
-      >
-        {value}
-      </li>
-    ) : (
-      <li
-        data-notification-type={type}
-        dangerouslySetInnerHTML={html}
-        onClick={() => {console.log('empty func');}}
-      ></li>
-    )
-  );
-});
-
-NotificationItem.defaultProps = {
-  type: 'default',
-  markAsRead: () => {console.log('empty func');},
-	id: 0
-};
+class NotificationItem extends React.PureComponent {
+  render() {
+    const { type, value, html, markAsRead, id } = this.props;
+    return (
+      <>
+        {type && value ? (
+          <li onClick={() => markAsRead(id)} data-notification-type={type}>
+            {value}
+          </li>
+        ) : null}
+        {html ? <li onClick={() => markAsRead(id)} data-urgent dangerouslySetInnerHTML={{ __html: html }}></li> : null}
+      </>
+    );
+  }
+}
 
 NotificationItem.propTypes = {
-  html: PropTypes.shape({__html: PropTypes.string}),
   type: PropTypes.string.isRequired,
   value: PropTypes.string,
+  __html: PropTypes.shape({
+    html: PropTypes.string,
+  }),
   markAsRead: PropTypes.func,
-  id: PropTypes.number
+  id: PropTypes.number,
+};
+
+NotificationItem.defaultProps = {
+  type: "default",
+  markAsRead: () => {
+    console.log("empty func");
+  },
+  id: 0,
 };
 
 export default NotificationItem;

@@ -1,28 +1,7 @@
-import { shallow } from "enzyme";
 import React from "react";
 import NotificationItem from "./NotificationItem";
-import Notifications from "./Notifications";
+import { shallow } from "enzyme";
 import { StyleSheetTestUtils } from "aphrodite";
-// Mock document.querySelector
-jest.spyOn(global.document, 'querySelector').mockImplementation(() => {
-  return {
-    appendChild: jest.fn(),
-  };
-});
-
-jest.mock('aphrodite', () => {
-  const styleSheet = {
-    css: jest.fn(),
-    StyleSheet: { create: jest.fn() },
-  };
-  return {
-    ...jest.requireActual('aphrodite'),
-    StyleSheet: styleSheet,
-    css: styleSheet.css,
-  };
-});
-
-
 
 beforeEach(() => {
   StyleSheetTestUtils.suppressStyleInjection();
@@ -31,25 +10,28 @@ afterEach(() => {
   StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
 });
 
-describe("<Notifications />", () => {
-  it("NotificationItem renders without crashing", () => {
+describe("rendering components", () => {
+  it("renders NotificationItem component without crashing", () => {
     const wrapper = shallow(<NotificationItem />);
-    expect(wrapper.exists()).toEqual(true);
+
+    expect(wrapper.exists()).toBe(true);
   });
 
-  it("Verify that by passing dummy type and value props, it renders the correct html", () => {
-    const wrapper = shallow(<NotificationItem type="default" value="test" />);
-    wrapper.update();
-    const listItem = wrapper.find("li");
+  it('renders correct html from type="default" value="test" props', () => {
+    const wrapper = shallow(<NotificationItem />);
 
-    expect(listItem).toHaveLength(1);
-    expect(listItem.text()).toEqual("test");
-    expect(listItem.prop("data-notification-type")).toEqual("default");
+    wrapper.setProps({ type: "default", value: "test" });
+    expect(wrapper.html()).toEqual('<li data-notification-type="default">test</li>');
   });
 
+  it('renders correct html from  html="<u>test</u>" props', () => {
+    const wrapper = shallow(<NotificationItem />);
 
-  
+    wrapper.setProps({ html: "<u>test</u>" });
+    expect(wrapper.html()).toEqual('<li data-urgent="true"><u>test</u></li>');
+  });
 });
+
 describe("onclick event behaves as it should", () => {
   it("should call console.log", () => {
     const wrapper = shallow(<NotificationItem />);
@@ -62,4 +44,3 @@ describe("onclick event behaves as it should", () => {
     spy.mockRestore();
   });
 });
-
